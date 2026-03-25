@@ -2,22 +2,62 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HACKER TEAM OFC</title>
+<title>HACKER ACCESS</title>
 
 <style>
 body{
-    background:#020617;
+    margin:0;
+    background:black;
     font-family:Arial;
-    text-align:center;
     color:white;
+    text-align:center;
 }
 
-h1{
-    margin-top:20px;
-    color:#00ffcc;
+/* MATRIX */
+#matrix{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
 }
 
-/* CARD STYLE */
+/* LOGIN */
+#loginBox{
+    margin-top:100px;
+    color:#00ff00;
+}
+
+input{
+    padding:10px;
+    background:black;
+    border:1px solid #00ff00;
+    color:#00ff00;
+}
+
+button{
+    margin-top:10px;
+    padding:10px;
+    background:#00ff00;
+    border:none;
+    color:black;
+}
+
+/* HACK SCREEN */
+#hackScreen{
+    display:none;
+    text-align:left;
+    padding:20px;
+    color:#00ff00;
+}
+
+/* MAIN SITE */
+#mainSite{
+    display:none;
+}
+
+/* CARD */
 .card{
     width:90%;
     margin:15px auto;
@@ -27,13 +67,11 @@ h1{
     box-shadow:0 0 10px rgba(0,255,204,0.2);
 }
 
-/* IMAGE STYLE */
 .card img{
     width:100%;
     border-radius:12px;
 }
 
-/* BUTTON STYLE */
 .btn{
     display:block;
     margin-top:10px;
@@ -41,79 +79,244 @@ h1{
     border-radius:10px;
     text-decoration:none;
     color:white;
-    font-size:16px;
     background:linear-gradient(45deg,#ff0000,#ff7300);
 }
-</style>
 
+/* LOADER */
+#loader{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:black;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:999;
+}
+
+.spinner{
+    border:5px solid #111;
+    border-top:5px solid #00ff00;
+    border-radius:50%;
+    width:50px;
+    height:50px;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+
+.bar{
+    width:80%;
+    height:10px;
+    background:#111;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:15px;
+}
+
+.progress{
+    height:100%;
+    width:0%;
+    background:#00ff00;
+}
+</style>
 </head>
 
 <body>
 
-<h1>🔥 HACKER TEAM OFC TOOLS 🔥</h1>
+<canvas id="matrix"></canvas>
 
-<!-- CARD 1 -->
+<!-- LOGIN -->
+<div id="loginBox">
+    <h2>🔐 ENTER ACCESS CODE</h2>
+    <input type="password" id="pass" placeholder="Enter Password">
+    <br>
+    <button onclick="login()">ACCESS</button>
+</div>
+
+<!-- HACK SCREEN -->
+<div id="hackScreen"></div>
+
+<!-- MAIN WEBSITE -->
+<div id="mainSite">
+
+<h1 style="color:#00ffcc;">🔥 HACKER TEAM OFC TOOLS 🔥</h1>
+
+<!-- LOADER -->
+<div id="loader">
+    <div class="spinner"></div>
+    <h2 style="color:#00ff00;">🔐 Verifying...</h2>
+    <div class="bar">
+        <div class="progress" id="progress"></div>
+    </div>
+</div>
+
+<!-- CARDS -->
+
 <div class="card">
 <img src="https://i.supaimg.com/e365dcae-cc1b-4e0d-bee0-0e883ba0a858/36672f50-039e-410d-99c3-6a42321badfd.jpg">
-<a class="btn" href="https://devuploads.com/lmnpb2chleo0
-    " target="_blank">APK TOOL M</a>
+<a class="btn" onclick="openLink('https://devuploads.com/lmnpb2chleo0')">APK TOOL M</a>
 </div>
 
-<!-- CARD 2 -->
 <div class="card">
 <img src="https://i.supaimg.com/e365dcae-cc1b-4e0d-bee0-0e883ba0a858/425aa5da-794a-4e3a-99a4-63bfc6cf3cca.jpg">
-<a class="btn" href="https://devuploads.com/v4lsucdkb3vu" target="_blank">MT MANAGER</a>
+<a class="btn" onclick="openLink('https://devuploads.com/v4lsucdkb3vu')">MT MANAGER</a>
 </div>
 
-<!-- CARD 3 -->
 <div class="card">
 <img src="https://i.supaimg.com/e365dcae-cc1b-4e0d-bee0-0e883ba0a858/a6168b0f-81ba-4e6f-92b7-783f9e538f6e.jpg">
-<a class="btn" href="https://devuploads.com/zrw62x0ibtnx
-    " target="_blank">SRPATCH</a>
+<a class="btn" onclick="openLink('https://devuploads.com/zrw62x0ibtnx')">SRPATCH</a>
 </div>
 
-<!-- CARD 4 -->
 <div class="card">
 <img src="https://i.supaimg.com/e365dcae-cc1b-4e0d-bee0-0e883ba0a858/23aa4f47-fe70-494c-a14c-b73d2a4ba54a.jpg">
-<a class="btn" href="https://t.me/YOUR_LINK" target="_blank">NP MANAGER</a>
+<a class="btn" onclick="openLink('https://t.me/YOUR_LINK')">NP MANAGER</a>
 </div>
 
-<!-- CARD 5 -->
 <div class="card">
 <img src="https://i.supaimg.com/e365dcae-cc1b-4e0d-bee0-0e883ba0a858/77a0fe26-0487-469c-8d29-49d456bc00dd.jpg">
-<a class="btn" href="https://devuploads.com/7g9wvbkfflmi
-    " target="_blank">AIDE PLUS</a>
+<a class="btn" onclick="openLink('https://devuploads.com/7g9wvbkfflmi')">AIDE PLUS</a>
 </div>
 
-<!-- CARD 6 -->
 <div class="card">
 <img src="https://i.supaimg.com/e365dcae-cc1b-4e0d-bee0-0e883ba0a858/3f9269ee-adf2-4628-aed7-c2ae82b1a4db.png">
-<a class="btn" href="https://t.me/YOUR_LINK" target="_blank">SRC channel</a>
+<a class="btn" onclick="openLink('https://t.me/YOUR_LINK')">SRC CHANNEL</a>
 </div>
 
-<!-- CARD 7 -->
 <div class="card">
 <img src="https://i.supaimg.com/e365dcae-cc1b-4e0d-bee0-0e883ba0a858/1a4c4eef-30eb-4cc5-bb79-fdbb07035512.png">
-<a class="btn" href="https://t.me/+8ZDskkfPOmE3MDZl" target="_blank">COMEING SOON</a>
+<a class="btn" onclick="openLink('https://t.me/+8ZDskkfPOmE3MDZl')">COMING SOON</a>
 </div>
 
-<!-- CARD 8 -->
 <div class="card">
 <img src="https://i.supaimg.com/e365dcae-cc1b-4e0d-bee0-0e883ba0a858/1a4c4eef-30eb-4cc5-bb79-fdbb07035512.png">
-<a class="btn" href="https://t.me/+8ZDskkfPOmE3MDZl" target="_blank">COMEING SOON</a>
+<a class="btn" onclick="openLink('https://t.me/+8ZDskkfPOmE3MDZl')">COMING SOON</a>
 </div>
 
-<!-- CARD 9 -->
 <div class="card">
 <img src="https://i.supaimg.com/e365dcae-cc1b-4e0d-bee0-0e883ba0a858/0ab569bc-7ac1-4cff-8d03-22f47820a783.png">
-<a class="btn" href="https://t.me/+_2DzGrWFGXU5NmNl" target="_blank"> TELEGRAM</a>
+<a class="btn" onclick="openLink('https://t.me/+_2DzGrWFGXU5NmNl')">TELEGRAM</a>
 </div>
 
-<!-- CARD 10 -->
 <div class="card">
 <img src="https://i.supaimg.com/e365dcae-cc1b-4e0d-bee0-0e883ba0a858/1a4c4eef-30eb-4cc5-bb79-fdbb07035512.png">
-<a class="btn" href="https://t.me/+8ZDskkfPOmE3MDZl" target="_blank">COMEING SOON</a>
+<a class="btn" onclick="openLink('https://t.me/+8ZDskkfPOmE3MDZl')">COMING SOON</a>
 </div>
+
+</div>
+
+<script>
+// MATRIX
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+let letters = "01HACKER";
+letters = letters.split("");
+
+let fontSize = 14;
+let columns = canvas.width / fontSize;
+
+let drops = [];
+for(let i=0;i<columns;i++) drops[i]=1;
+
+function draw(){
+    ctx.fillStyle="rgba(0,0,0,0.05)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle="#00ff00";
+    ctx.font=fontSize+"px monospace";
+
+    for(let i=0;i<drops.length;i++){
+        let text=letters[Math.floor(Math.random()*letters.length)];
+        ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+        if(drops[i]*fontSize>canvas.height && Math.random()>0.975){
+            drops[i]=0;
+        }
+        drops[i]++;
+    }
+}
+setInterval(draw,33);
+
+// LOGIN
+function login(){
+    let pass = document.getElementById("pass").value;
+
+    if(pass === "1234"){
+        document.getElementById("loginBox").style.display="none";
+        startHack();
+    }else{
+        alert("ACCESS DENIED ❌");
+    }
+}
+
+// HACK
+function startHack(){
+    let hack = document.getElementById("hackScreen");
+    hack.style.display="block";
+
+    let lines = [
+        "Connecting to server...",
+        "Bypassing firewall...",
+        "Injecting payload...",
+        "Decrypting data...",
+        "Accessing system...",
+        "ACCESS GRANTED ✅"
+    ];
+
+    let i = 0;
+
+    let interval = setInterval(function(){
+        hack.innerHTML += lines[i] + "<br>";
+        i++;
+
+        if(i >= lines.length){
+            clearInterval(interval);
+            setTimeout(showMain, 1500);
+        }
+    }, 1000);
+}
+
+// SHOW SITE
+function showMain(){
+    document.getElementById("hackScreen").style.display="none";
+    document.getElementById("mainSite").style.display="block";
+}
+
+// LOADER CLICK
+let isLoading = false;
+
+function openLink(link){
+    if(isLoading) return;
+    isLoading = true;
+
+    document.getElementById("loader").style.display="flex";
+
+    let progress = document.getElementById("progress");
+    let width = 0;
+
+    let interval = setInterval(function(){
+        width += 2;
+        progress.style.width = width + "%";
+
+        if(width >= 100){
+            clearInterval(interval);
+            window.open(link, "_blank");
+            document.getElementById("loader").style.display="none";
+            isLoading = false;
+        }
+    }, 40);
+}
+</script>
 
 </body>
 </html>
